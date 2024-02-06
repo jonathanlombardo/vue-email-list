@@ -42,7 +42,7 @@
   <body>
     <div id="app" class="container text-center">
       <h1 id="title">{{title}}</h1>
-      <div v-html="table" v-if="mailList.length >= mailListLength"></div>
+      <div v-html="table" v-if="isListReady"></div>
       <div v-else><i class="fa-solid fa-spinner fa-spin ms-3"></i> Loading</div>
     </div>
   </body>

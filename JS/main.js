@@ -14,6 +14,10 @@ const app = createApp({
     table() {
       return objectToTable(this.mailList);
     },
+
+    isListReady() {
+      return this.mailList.length >= this.mailListLength;
+    },
   },
 
   methods: {
@@ -24,21 +28,16 @@ const app = createApp({
       });
     },
 
-    getMailList() {
-      for (let i = 0; i < this.mailListLength; i++) {
+    getMailList(n) {
+      for (let i = 0; i < n; i++) {
         this.fetchMail();
       }
-      //   while (this.mailList.length < 10) {
-      //     console.log(this.mailList.length);
-      //   }
-
-      //   return this.mailList;
     },
   },
 
   created() {
     // ...
-    this.getMailList();
+    this.getMailList(this.mailListLength);
   },
 });
 
